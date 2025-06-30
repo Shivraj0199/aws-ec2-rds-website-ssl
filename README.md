@@ -69,8 +69,8 @@ For a basic project, you can use the default VPC (skip custom VPC setup)
 
 * Create a simple login/register form: ( /var/www/html/index.html )
     
-    * index.html
-
+* index.html
+ 
 ```
   <form action="save.php" method="POST">
   <input type="text" name="username" placeholder="Username" required><br>
@@ -78,4 +78,19 @@ For a basic project, you can use the default VPC (skip custom VPC setup)
   <button type="submit">Register</button>
   </form>
 ```
-  *   save.html 
+
+* save.html
+
+```
+   <?php
+   $conn = new mysqli("<RDS-End-Point>", "<master-user-name>", "<db-password>", "<db-name>");
+   if ($conn->connect_error) {
+   die("Connection failed");
+   }
+   $username = $_POST['username'];
+   $password = $_POST['password'];
+   $conn->query("INSERT INTO users (username, password) VALUES ('$username', '$password')");
+   echo "Registered successfully!";
+   ?>
+```
+
