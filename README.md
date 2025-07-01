@@ -1,4 +1,4 @@
-## Host a Website on EC2 with RDS (MySQL) and HTTPS via ACM
+# Host a Website on EC2 with RDS (MySQL) and HTTPS via ACM
 
 
 ### **🎯 Objective:**
